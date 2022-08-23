@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\DoA_Labb3_V1.dir/objects.a
+C:\MinGw64\x86_64-7.3.0-release-posix-seh-rt_v5-rev0\mingw64\bin\ar.exe qc CMakeFiles\DoA_Labb3_V1.dir/objects.a @CMakeFiles\DoA_Labb3_V1.dir\objects1.rsp
+C:\MinGw64\x86_64-7.3.0-release-posix-seh-rt_v5-rev0\mingw64\bin\g++.exe -O3 -DNDEBUG -Wl,--whole-archive CMakeFiles\DoA_Labb3_V1.dir/objects.a -Wl,--no-whole-archive -o DoA_Labb3_V1.exe -Wl,--out-implib,libDoA_Labb3_V1.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\DoA_Labb3_V1.dir\linklibs.rsp
