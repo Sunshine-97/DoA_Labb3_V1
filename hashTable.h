@@ -33,14 +33,15 @@ class hashTable {
 
     bool contains_at(const std::vector<std::unique_ptr<Node>>& table, size_t data) const {
         auto hash = hashFunc(data, table.size());
-        auto Itr = std::make_unique<Node>(Node{table[hash]->data, std::move(table[hash]->next)});
 
-        while(!Itr) {
-            auto& tmp = Itr;
-            if(Itr->data == data) {
-                return true;
+        if(table[hash]->data == data) {
+            //std::cout<<table[hash]->data<<"!\n";
+            return true;
+        } else {
+            for(auto&& i = table[hash]->next; i != nullptr; i = std::move(i->next)) {
+                //std::cout<<i->data<<", ";
+                if(i->data == data) return true;
             }
-            Itr = std::move(tmp->next);
         }
         return false;
     }
@@ -48,13 +49,11 @@ class hashTable {
 public:
     hashTable() = default;
     explicit hashTable(const std::vector<int>& init) {
-        hashtable.resize(init.size()*2.6);
+        hashtable.resize(init.size()*1.7);
         for(auto e : init) {
             insert(e);
         }
     }
-
-    ~hashTable() = default;
 
     void insert(size_t data) {
         insert_at(hashtable, data);

@@ -104,15 +104,13 @@ class binarySearchTree {
     bool contains_at(const Node* node, size_t value) const {
 
         while (node != nullptr) {
-            // pass right subtree as new tree
+
             if (value > node->data)
                 node = node->right;
-
-                // pass left subtree as new tree
             else if (value < node->data)
                 node = node->left;
             else
-                return true; // if the key is found return 1
+                return true;
         }
         return false;
     }
