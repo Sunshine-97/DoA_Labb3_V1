@@ -60,7 +60,8 @@ void hash_search(size_t N, size_t iteration, const std::string& filename) {
         long double sum = std::accumulate(measurement.begin(), measurement.end(), 0.0);
         long double avg = sum / measurement.size();
         long double s = calcStdev(measurement, avg);
-        myFile << std::setprecision(9) << std::fixed << std::showpoint << N << "\t\t" << avg << "\t\t" << s << "\t\t" << samples << std::endl;
+        auto avgTime = sqrt(N) * avg;
+        myFile << std::setprecision(9) << std::fixed << std::showpoint << N << "\t\t" << avgTime << "\t\t" << s << "\t\t" << samples << std::endl;
         measurement.clear();
     }
 }
@@ -91,7 +92,8 @@ void BST(size_t N, size_t iteration, const std::string& filename) {
         long double sum = std::accumulate(measurement.begin(), measurement.end(), 0.0);
         long double avg = sum / measurement.size();
         long double s = calcStdev(measurement, avg);
-        myFile << std::setprecision(9) << std::fixed << std::showpoint << N << "\t\t" << avg << "\t\t" << s << "\t\t" << samples << std::endl;
+        auto avgTime = sqrt(N) * avg;
+        myFile << std::setprecision(9) << std::fixed << std::showpoint << N << "\t\t" << avgTime << "\t\t" << s << "\t\t" << samples << std::endl;
         measurement.clear();
     }
 }

@@ -34,14 +34,15 @@ class hashTable {
 
     bool contains_at(const std::vector<std::unique_ptr<Node>>& table, size_t data) const {
         auto hash = hashFunc(data, table.size());
-        auto Itr = std::make_unique<Node>(Node{table[hash]->data, std::move(table[hash]->next)});
 
-        while(Itr) {
-            auto& tmp = Itr;
-            if(Itr->data == data) {
-                return true;
+        if(table[hash]->data == data) {
+            //std::cout<<table[hash]->data<<"!\n";
+            return true;
+        } else {
+            for(auto&& i = table[hash]->next; i != nullptr; i = std::move(i->next)) {
+                //std::cout<<i->data<<", ";
+                if(i->data == data) return true;
             }
-            Itr = std::move(tmp->next);
         }
         return false;
     }
