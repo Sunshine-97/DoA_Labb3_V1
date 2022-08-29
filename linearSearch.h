@@ -5,6 +5,7 @@
 #ifndef DOA_LABB3_V1_LINEARSEARCH_H
 #define DOA_LABB3_V1_LINEARSEARCH_H
 
+//Time Complexity: O(N)
 class linearSearch {
 public:
     linearSearch() = default;

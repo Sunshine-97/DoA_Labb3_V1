@@ -4,7 +4,8 @@
 
 #ifndef DOA_LABB3_V1_HASHTABLE_H
 #define DOA_LABB3_V1_HASHTABLE_H
-
+//Time Complexity: O(1)
+//Worst: O(n)
 class hashTable {
     struct Node {
         size_t data;
@@ -35,7 +36,7 @@ class hashTable {
         auto hash = hashFunc(data, table.size());
         auto Itr = std::make_unique<Node>(Node{table[hash]->data, std::move(table[hash]->next)});
 
-        while(!Itr) {
+        while(Itr) {
             auto& tmp = Itr;
             if(Itr->data == data) {
                 return true;
@@ -48,7 +49,7 @@ class hashTable {
 public:
     hashTable() = default;
     explicit hashTable(const std::vector<int>& init) {
-        hashtable.resize(init.size()*2.6);
+        hashtable.resize(init.size()*2.4);
         for(auto e : init) {
             insert(e);
         }

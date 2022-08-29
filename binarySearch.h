@@ -7,6 +7,7 @@
 
 #include <iterator>
 
+//Time Complexity: O(log n)
 class binarySearch {
 public:
     binarySearch() = default;

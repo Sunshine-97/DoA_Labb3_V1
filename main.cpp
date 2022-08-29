@@ -12,8 +12,8 @@
 #include "timer.h"
 #include "testCases.h"
 
-int SIZE = 200000;
-int MAX = 2000000;
+int SIZE = 100000;
+int MAX = 1000000;
 
 /*
 void SieveOfErastosthenes(int N, std::vector<int> &data) {
@@ -79,8 +79,8 @@ void BST(size_t N, size_t iteration, const std::string& filename) {
     for(; N <= iteration; N += size) {
         SieveOfErastosthenes(data);
         data.resize(N);
-        binarySearchTree bst(data);
         for(int i = 0; i < samples; i++) {
+            binarySearchTree bst(data);
             std::uniform_int_distribution<> target(0, (data.size()-1)); // define the range
             auto random = target(gen);
             t.start();
@@ -106,9 +106,9 @@ int main() {
     linearSearch LinearSearch;
     binarySearch BinarySearch;
 
-    binary_linear_Search(LinearSearch, N, iterations, "LinearSearch.txt");
-    binary_linear_Search(BinarySearch, N, iterations, "BinarySearch.txt");
-    BST(N, iterations, bst);
+    //binary_linear_Search(LinearSearch, N, iterations, "LinearSearch.txt");
+    //binary_linear_Search(BinarySearch, N, iterations, "BinarySearch.txt");
+    //BST(N, iterations, bst);
     hash_search(N, iterations, hashtable);
 
     /*

@@ -64,6 +64,8 @@ public:
 };
  */
 
+//Time Complexity: O(log n)
+//Worst: O(n)
 class binarySearchTree {
     struct Node {
         size_t data{};
