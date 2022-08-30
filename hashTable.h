@@ -50,7 +50,7 @@ class hashTable {
 public:
     hashTable() = default;
     explicit hashTable(const std::vector<int>& init) {
-        hashtable.resize(init.size()*2.4);
+        hashtable.resize((init.size()*1.6)-1);
         for(auto e : init) {
             insert(e);
         }

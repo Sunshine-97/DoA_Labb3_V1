@@ -37,6 +37,7 @@ void SieveOfErastosthenes(int N, std::vector<int> &data) {
 void hash_search(size_t N, size_t iteration, const std::string& filename) {
     size_t size = N;
     int samples = 50;
+    int count = 0;
 
     std::vector<int> data;
     std::vector<double> measurement;
@@ -50,18 +51,19 @@ void hash_search(size_t N, size_t iteration, const std::string& filename) {
         data.resize(N);
         for(int i = 0; i < samples; i++) {
             hashTable hash(data);
-            std::uniform_int_distribution<> target(0, (data.size()-1)); // define the range
+            std::uniform_int_distribution<> target(0, (data.size())); // define the range
             auto random = target(gen);
             t.start();
-            hash.contains(data[random]);
+            if(hash.contains(data[random]))
+                count++;
             t.stop();
             measurement.push_back(t.elapsedSec());
         }
         long double sum = std::accumulate(measurement.begin(), measurement.end(), 0.0);
         long double avg = sum / measurement.size();
         long double s = calcStdev(measurement, avg);
-        auto avgTime = sqrt(N) * avg;
-        myFile << std::setprecision(9) << std::fixed << std::showpoint << N << "\t\t" << avgTime << "\t\t" << s << "\t\t" << samples << std::endl;
+        auto stdev = (s / sqrt(N));
+        myFile << std::setprecision(12) << std::fixed << std::showpoint << N << "\t\t" << avg << "\t\t" << stdev << "\t\t" << samples << std::endl;
         measurement.clear();
     }
 }
@@ -69,6 +71,7 @@ void hash_search(size_t N, size_t iteration, const std::string& filename) {
 void BST(size_t N, size_t iteration, const std::string& filename) {
     size_t size = N;
     int samples = 50;
+    int count = 0;
 
     std::vector<int> data;
     std::vector<double> measurement;
@@ -82,18 +85,19 @@ void BST(size_t N, size_t iteration, const std::string& filename) {
         data.resize(N);
         for(int i = 0; i < samples; i++) {
             binarySearchTree bst(data);
-            std::uniform_int_distribution<> target(0, (data.size()-1)); // define the range
+            std::uniform_int_distribution<> target(0, (data.size())); // define the range
             auto random = target(gen);
             t.start();
-            bst.contains(data[random]);
+            if(bst.contains(data[random]))
+                count++;
             t.stop();
             measurement.push_back(t.elapsedSec());
         }
         long double sum = std::accumulate(measurement.begin(), measurement.end(), 0.0);
         long double avg = sum / measurement.size();
         long double s = calcStdev(measurement, avg);
-        auto avgTime = sqrt(N) * avg;
-        myFile << std::setprecision(9) << std::fixed << std::showpoint << N << "\t\t" << avgTime << "\t\t" << s << "\t\t" << samples << std::endl;
+        auto stdev = (s / sqrt(N));
+        myFile << std::setprecision(12) << std::fixed << std::showpoint << N << "\t\t" << avg << "\t\t" << stdev << "\t\t" << samples << std::endl;
         measurement.clear();
     }
 }
@@ -108,9 +112,9 @@ int main() {
     linearSearch LinearSearch;
     binarySearch BinarySearch;
 
-    //binary_linear_Search(LinearSearch, N, iterations, "LinearSearch.txt");
-    //binary_linear_Search(BinarySearch, N, iterations, "BinarySearch.txt");
-    //BST(N, iterations, bst);
+    binary_linear_Search(LinearSearch, N, iterations, "LinearSearch.txt");
+    binary_linear_Search(BinarySearch, N, iterations, "BinarySearch.txt");
+    BST(N, iterations, bst);
     hash_search(N, iterations, hashtable);
 
     /*
