@@ -15,15 +15,14 @@ public:
     template<typename It, typename T>
     bool operator()(It first, It last, const T& target) {
         while(last >= first) {
-            auto mid = first + (std::distance(first, last) / 2);
+            It mid = first + (std::distance(first, last) / 2);
 
-            if(*mid == target)
+            if(*mid == target) {
                 return true;
-
-            if(*mid > target)
-                return (first, mid - 1, target);
-
-            return (mid + 1, last, target);
+            } else if(*mid > target) {
+                return (first, mid-1, target);
+            } else
+                return (mid+1, last, target);
         }
         return false;
     }

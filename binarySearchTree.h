@@ -2,8 +2,9 @@
 // Created by Caaaarl on 2022-08-20.
 //
 
-#ifndef DOA_LABB3_V1_BINARYTREESEARCH_H
-#define DOA_LABB3_V1_BINARYTREESEARCH_H
+#ifndef DOA_LABB3_V1_BINARYSEARCHTREE_H
+#define DOA_LABB3_V1_BINARYSEARCHTREE_H
+
 /*
 class binarySearchTree {
     struct Node {
@@ -11,7 +12,7 @@ class binarySearchTree {
         std::unique_ptr<Node> left{}; // nullptr leaf
         std::unique_ptr<Node> right{}; // nullptr leaf
     };
-    std::unique_ptr<Node> root = nullptr;
+    std::unique_ptr<Node> root{};
 
     void insert_at(std::unique_ptr<Node>& node, size_t data)
     {
@@ -62,7 +63,7 @@ public:
     }
 
 };
- */
+*/
 
 //Time Complexity: O(log n)
 //Worst: O(n)
@@ -71,7 +72,8 @@ class binarySearchTree {
         size_t data{};
         Node* left{};
         Node* right{};
-    } *root{};
+    };
+    Node* root{};
 
     Node* newNode(size_t data) {
         Node* tmp = new Node;
@@ -83,50 +85,85 @@ class binarySearchTree {
     }
 
     void insert_at(Node* &node, size_t data) {
-        Node* new_node = newNode(data);
-        Node* x = root;
-        Node* y = nullptr;
-
-        while(x != nullptr) {
-            y = x;
-            if(data < x->data)
-                x = x->left;
-            else
-                x = x->right;
+/*
+        auto new_node = new Node{data};
+        if(!node) {
+            node = new_node;
+            return;
         }
 
-        if(y==nullptr)
-            y = new_node;
-        else if(data < y->data)
-            y->left = new_node;
+        Node* prev = nullptr;
+        auto tmp = node;
+        while(tmp) {
+            if(data < tmp->data) {
+                prev = tmp;
+                tmp = tmp->left;
+            } else if(data > tmp->data) {
+                prev = tmp;
+                tmp = tmp->right;
+            }
+        }
+        if(data < prev->data)
+            prev->left = new_node;
         else
-            y->right = new_node;
+            prev->right = new_node;
+*/
+
+        if(!node) {
+            node = new Node{data};
+            return;
+        } else if(data < node->data) {
+            insert_at(node->left, data);
+        } else {
+            insert_at(node->right, data);
+        }
+
     }
 
     bool contains_at(const Node* node, size_t value) const {
 
-        while (node != nullptr) {
-            // pass right subtree as new tree
-            if (value > node->data)
-                node = node->right;
-
-                // pass left subtree as new tree
-            else if (value < node->data)
+        if (!node) {
+            return false;
+        } else if (value < node->data) {
+            return contains_at(node->left, value);
+        } else if (node->data < value) {
+            return contains_at(node->right, value);
+        } else {
+            return true;
+        }
+        /*
+        while(node != nullptr) {
+            if(value < node->data) {
                 node = node->left;
-            else
-                return true; // if the key is found return 1
+            } else if(value > node->data) {
+                node = node->right;
+            } else
+                return true;
         }
         return false;
+         */
     }
 
 public:
     binarySearchTree() = default;
-    explicit binarySearchTree(std::vector<int> init) {
-        auto midPos = init.begin() + (init.size() / 2);
-        insert(*midPos);
-        init.erase(midPos);
-        for(auto e : init) {
-            insert(e);
+    explicit binarySearchTree(std::vector<int>& init) {
+        buildTree(init.begin(), init.end());
+    }
+
+
+    template<typename It>
+    void buildTree(It first, It last) {
+        while(last >= first) {
+            auto mid = first + (std::distance(first, last) / 2);
+            insert(*mid);
+
+            if(mid != first) {
+                buildTree(first, std::prev(mid));
+                first = mid;
+            } else if(mid != last) {
+                buildTree(std::next(mid), last);
+                last = mid;
+            } else return;
         }
     }
 
@@ -140,7 +177,4 @@ public:
 };
 
 
-
-
-
-#endif //DOA_LABB3_V1_BINARYTREESEARCH_H
+#endif //DOA_LABB3_V1_BINARYSEARCHTREE_H

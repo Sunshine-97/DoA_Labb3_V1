@@ -17,6 +17,44 @@ class hashTable {
         return (data % size);
     }
 
+
+    bool isPrime(int n)
+    {
+        // Corner cases
+        if (n <= 1)  return false;
+        if (n <= 3)  return true;
+
+        // This is checked so that we can skip
+        // middle five numbers in below loop
+        if (n%2 == 0 || n%3 == 0) return false;
+
+        for (int i=5; i*i<=n; i=i+6)
+            if (n%i == 0 || n%(i+2) == 0)
+                return false;
+
+        return true;
+    }
+
+    int findNextPrime(int N) {
+        // Base case
+        if (N <= 1)
+            return 2;
+
+        int prime = N;
+        bool found = false;
+
+        // Loop continuously until isPrime returns
+        // true for a number greater than n
+        while (!found) {
+            prime++;
+
+            if (isPrime(prime))
+                found = true;
+        }
+
+        return prime;
+    }
+
     void insert_at(std::vector<std::unique_ptr<Node>>& table, size_t data) {
         auto hash = hashFunc(data, table.size());
 
@@ -32,7 +70,7 @@ class hashTable {
         }
     }
 
-    bool contains_at(const std::vector<std::unique_ptr<Node>>& table, size_t data) const {
+    bool contains_at(const std::vector<std::unique_ptr<Node>>& table, const size_t& data) const {
         auto hash = hashFunc(data, table.size());
 
         if(table[hash]->data == data) {
@@ -50,13 +88,14 @@ class hashTable {
 public:
     hashTable() = default;
     explicit hashTable(const std::vector<int>& init) {
-        hashtable.resize((init.size()*1.6)-1);
-        for(auto e : init) {
+        int newSize = (init.size()*1.7);
+        newSize = findNextPrime(newSize);
+        hashtable.resize(newSize);
+
+        for(auto& e : init) {
             insert(e);
         }
     }
-
-    ~hashTable() = default;
 
     void insert(size_t data) {
         insert_at(hashtable, data);

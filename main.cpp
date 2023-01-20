@@ -1,13 +1,12 @@
 #include <iostream>
 #include <cstring>
 #include <vector>
-#include <memory>
 #include <random>
 #include <fstream>
 #include <iomanip>
 #include "linearSearch.h"
 #include "binarySearch.h"
-#include "binaryTreeSearch.h"
+#include "binarySearchTree.h"
 #include "hashTable.h"
 #include "timer.h"
 #include "testCases.h"
@@ -39,30 +38,37 @@ void hash_search(size_t N, size_t iteration, const std::string& filename) {
     int samples = 50;
     int count = 0;
 
-    std::vector<int> data;
+    std::vector<int> primes;
     std::vector<double> measurement;
     std::ofstream myFile(filename);
 
     std::random_device rd; // obtain a random number from hardware
     std::mt19937 gen(rd()); // seed the generator
     timer t;
+    SieveOfErastosthenes(primes);
     for(; N <= iteration; N += size) {
-        SieveOfErastosthenes(data);
+        std::vector<int> data = primes;
         data.resize(N);
+        hashTable hash(data);
         for(int i = 0; i < samples; i++) {
-            hashTable hash(data);
             std::uniform_int_distribution<> target(0, (data.size())); // define the range
             auto random = target(gen);
             t.start();
+for(int repeat = 0; repeat < 10000; repeat ++)
             if(hash.contains(data[random]))
+            {
                 count++;
-            t.stop();
-            measurement.push_back(t.elapsedSec());
+                t.stop();
+                //std::cout<<"Found!\n";
+            } else {
+                std::cerr<<"Not found! " << filename << "\n";
+            }
+            measurement.push_back(t.elapsedSec()/ 10000);
         }
         long double sum = std::accumulate(measurement.begin(), measurement.end(), 0.0);
         long double avg = sum / measurement.size();
         long double s = calcStdev(measurement, avg);
-        auto stdev = (s / sqrt(N));
+        auto stdev = (s / std::sqrt(N));
         myFile << std::setprecision(12) << std::fixed << std::showpoint << N << "\t\t" << avg << "\t\t" << stdev << "\t\t" << samples << std::endl;
         measurement.clear();
     }
@@ -73,30 +79,36 @@ void BST(size_t N, size_t iteration, const std::string& filename) {
     int samples = 50;
     int count = 0;
 
-    std::vector<int> data;
+    std::vector<int> primes;
     std::vector<double> measurement;
     std::ofstream myFile(filename);
 
     std::random_device rd; // obtain a random number from hardware
     std::mt19937 gen(rd()); // seed the generator
     timer t;
+    SieveOfErastosthenes(primes);
     for(; N <= iteration; N += size) {
-        SieveOfErastosthenes(data);
+        std::vector<int> data = primes;
         data.resize(N);
+        binarySearchTree bst(data);
         for(int i = 0; i < samples; i++) {
-            binarySearchTree bst(data);
             std::uniform_int_distribution<> target(0, (data.size())); // define the range
             auto random = target(gen);
             t.start();
             if(bst.contains(data[random]))
+            {
                 count++;
-            t.stop();
+                t.stop();
+                //std::cout<<"Found!\n";
+            } else {
+                std::cerr<<"Not found! " << filename << "\n";
+            }
             measurement.push_back(t.elapsedSec());
         }
         long double sum = std::accumulate(measurement.begin(), measurement.end(), 0.0);
         long double avg = sum / measurement.size();
         long double s = calcStdev(measurement, avg);
-        auto stdev = (s / sqrt(N));
+        auto stdev = (s / std::sqrt(N));
         myFile << std::setprecision(12) << std::fixed << std::showpoint << N << "\t\t" << avg << "\t\t" << stdev << "\t\t" << samples << std::endl;
         measurement.clear();
     }
@@ -112,10 +124,10 @@ int main() {
     linearSearch LinearSearch;
     binarySearch BinarySearch;
 
-    binary_linear_Search(LinearSearch, N, iterations, "LinearSearch.txt");
-    binary_linear_Search(BinarySearch, N, iterations, "BinarySearch.txt");
-    BST(N, iterations, bst);
-    hash_search(N, iterations, hashtable);
+    binary_linear_Search(LinearSearch, N/10, iterations/10, "LinearSearch.txt");
+    binary_linear_Search(BinarySearch, N/10, iterations/10, "BinarySearch.txt");
+    BST(N/100, iterations/100, bst);
+    hash_search(N/100, iterations/100, hashtable);
 
     /*
     //LinearSearch

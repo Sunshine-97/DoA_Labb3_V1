@@ -12,6 +12,6 @@ set output filename
 set title title
 set xlabel "N Elements"
 set ylabel "t [ms]"
-set xrange [0.0:]
+set yrange [0.0:]
 
 plot series using 1:($2*1000) lt 7 lc 1 smooth csplines title "Line", series using 1:($2*1000):3 title "Input" lc 7 with errorbars

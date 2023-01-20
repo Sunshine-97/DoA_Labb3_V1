@@ -215,7 +215,7 @@ CMakeFiles/DoA_Labb3_V1.dir/main.cpp.obj: ../main.cpp \
   ../binarySearch.h \
   C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/iterator \
   C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stream_iterator.h \
-  ../binaryTreeSearch.h \
+  ../binarySearchTree.h \
   ../hashTable.h \
   ../timer.h \
   C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/chrono \
@@ -511,6 +511,8 @@ C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/x86_64-w64-mingw32/
 
 C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/stdlib.h:
 
+../binarySearchTree.h:
+
 C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/x86_64-w64-mingw32/include/malloc.h:
 
 C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/std_abs.h:
@@ -676,8 +678,6 @@ C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-
 C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/iterator:
 
 C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stream_iterator.h:
-
-../binaryTreeSearch.h:
 
 ../timer.h:
 

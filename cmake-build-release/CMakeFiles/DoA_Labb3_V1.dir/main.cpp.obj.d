@@ -140,24 +140,6 @@ CMakeFiles/DoA_Labb3_V1.dir/main.cpp.obj: \
  C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_vector.h \
  C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_bvector.h \
  C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/vector.tcc \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/memory \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_tempbuf.h \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_raw_storage_iter.h \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/ext/concurrence.h \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/uses_allocator.h \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/unique_ptr.h \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/tuple \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/array \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/invoke.h \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/shared_ptr.h \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/shared_ptr_base.h \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/allocated_ptr.h \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/refwrap.h \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/ext/aligned_buffer.h \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/shared_ptr_atomic.h \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/atomic_base.h \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/atomic_lockfree_defines.h \
- C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward/auto_ptr.h \
  C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/random \
  C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/cmath \
  C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/x86_64-w64-mingw32/include/math.h \
@@ -206,6 +188,10 @@ CMakeFiles/DoA_Labb3_V1.dir/main.cpp.obj: \
  C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/allocator.h \
  C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/codecvt.h \
  C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/unique_ptr.h \
+ C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/tuple \
+ C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/array \
+ C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/uses_allocator.h \
+ C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/invoke.h \
  C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/quoted_string.h \
  C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/sstream \
  C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/sstream.tcc \
@@ -213,7 +199,7 @@ CMakeFiles/DoA_Labb3_V1.dir/main.cpp.obj: \
  C:\Users\carlp\OneDrive\Dokument\GitHub\DoA_Labb3_V1\binarySearch.h \
  C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/iterator \
  C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stream_iterator.h \
- C:\Users\carlp\OneDrive\Dokument\GitHub\DoA_Labb3_V1\binaryTreeSearch.h \
+ C:\Users\carlp\OneDrive\Dokument\GitHub\DoA_Labb3_V1\binarySearchTree.h \
  C:\Users\carlp\OneDrive\Dokument\GitHub\DoA_Labb3_V1\hashTable.h \
  C:\Users\carlp\OneDrive\Dokument\GitHub\DoA_Labb3_V1\timer.h \
  C:/MinGw64/x86_64-7.3.0-release-posix-seh-rt_v5-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/chrono \

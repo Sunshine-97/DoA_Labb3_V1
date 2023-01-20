@@ -40,25 +40,76 @@ long double calcStdev(const T& data,long double avg) {
 template<class Search>
 void binary_linear_Search(Search search, size_t N, size_t iteration, const std::string& filename){
     size_t size = N;
-    int samples = 50;
+    int samples = 100;
     int count = 0;
-    std::vector<int> data;
+
+    std::vector<int> primes;
     std::vector<double> measurement;
     std::ofstream myFile(filename);
 
     std::random_device rd; // obtain a random number from hardware
     std::mt19937 gen(rd()); // seed the generator
     timer t;
+
+    SieveOfErastosthenes(primes);
     for(; N <= iteration; N += size) {
-        SieveOfErastosthenes(data);
+        std::vector<int> data = primes;
         data.resize(N);
         for(int i = 0; i < samples; i++) {
             std::uniform_int_distribution<> target(0, data.size()); // define the range
             auto random = target(gen);
             t.start();
             if(search(data.begin(), data.end(), data[random]))
+            {
                 count++;
-            t.stop();
+                t.stop();
+                //std::cout<<"Found!\n";
+            } else {
+                std::cerr<<"Not found! " << filename << "\n";
+            }
+            measurement.push_back(t.elapsedSec());
+        }
+        long double sum = std::accumulate(measurement.begin(), measurement.end(), 0.0);
+        long double avg = sum / measurement.size();
+        long double s = calcStdev(measurement, avg);
+        auto stdev = (s / std::sqrt(N));
+        myFile << std::setprecision(12) << std::fixed << std::showpoint << N << "\t\t" << avg << "\t\t" << stdev << "\t\t" << samples << std::endl;
+        measurement.clear();
+    }
+}
+
+/*
+template<class Search>
+void hash_BST_Search(Search search, size_t N, size_t iteration, const std::string& filename){
+    size_t size = N;
+    int samples = 100;
+    int count = 0;
+
+    std::vector<int> primes;
+    std::vector<double> measurement;
+    std::ofstream myFile(filename);
+
+    std::random_device rd; // obtain a random number from hardware
+    std::mt19937 gen(rd()); // seed the generator
+    timer t;
+
+    SieveOfErastosthenes(primes);
+    for(; N <= iteration; N += size) {
+        std::vector<int> data = primes;
+        data.resize(N);
+        search(data);
+        for(int i = 0; i < samples; i++) {
+            std::uniform_int_distribution<> target(0, data.size()); // define the range
+            auto random = target(gen);
+            t.start();
+            if(search.contains(data[random]))
+            {
+                count++;
+                t.stop();
+            } else {
+                t.stop();
+                std::cerr<<"Not found! " << filename << "\n";
+            }
             measurement.push_back(t.elapsedSec());
         }
         long double sum = std::accumulate(measurement.begin(), measurement.end(), 0.0);
@@ -69,5 +120,6 @@ void binary_linear_Search(Search search, size_t N, size_t iteration, const std::
         measurement.clear();
     }
 }
+*/
 
 #endif //DOA_LABB3_V1_TESTCASES_H
