@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cstring>
 #include <vector>
-#include <memory>
 #include <random>
 #include <fstream>
 #include <iomanip>
@@ -13,8 +12,8 @@
 #include "timer.h"
 #include "testCases.h"
 
-int SIZE = 20000;
-int MAX = 1000000;
+int SIZE = 2000;
+int MAX = 10000;
 
 /*
 void SieveOfErastosthenes(int N, std::vector<int> &data) {
